@@ -1,1 +1,1 @@
-This a table that sorts/search for Capoeira's moves and its description
+This a table that sorts/search Capoeira's moves and its description
