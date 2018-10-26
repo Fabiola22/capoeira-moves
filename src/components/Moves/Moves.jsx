@@ -3,7 +3,6 @@ import { getMoves } from "../../services/capoeiraData";
 import Pagination from "../../common/pagination";
 import _ from "lodash";
 import MovesTable from "../MovesTable";
-import SearchBox from "../SearchBox";
 
 class Moves extends Component {
   state = {
@@ -36,12 +35,6 @@ class Moves extends Component {
     this.setState({ currentPage: nextPage });
   };
 
-  // handleDelete = move => {
-  //   const moves = this.state.moves;
-  //   moves.splice(m => m.index, 1);
-  //   this.setState({ moves });
-  // };
-
   handleSort = sortColumn => {
     this.setState({ sortColumn });
   };
@@ -72,8 +65,9 @@ class Moves extends Component {
 
     return (
       <React.Fragment>
-        <SearchBox value={searchQuery} onChange={this.handleSearch} />
         <MovesTable
+          searchQuery={searchQuery}
+          onSearch={this.handleSearch}
           moves={moves}
           sortColumn={sortColumn}
           onSort={this.handleSort}
