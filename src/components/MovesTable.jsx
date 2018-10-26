@@ -1,55 +1,67 @@
 import React, { Component } from "react";
+import TableHeader from "../common/tableHeader";
+import TableBody from "../common/tableBody";
 
 class MovesTable extends Component {
-  raiseSort = path => {
-    const sortColumn = { ...this.props.sortColumn };
-    if (sortColumn.path === path)
-      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
-    else {
-      sortColumn.path = path;
-      sortColumn.order = "asc";
+  columns = [
+    { path: "name", label: "Name" },
+    { path: "type", label: "Type" },
+    { path: "description", label: "Description" },
+    {
+      path: "link",
+      label: "Watch Tutorial",
+      content: item => (
+        <a href={item.link}>
+          <i
+            style={{ color: "red", fontSize: "20px" }}
+            className="fa fa-youtube-play"
+          />
+        </a>
+      )
+    },
+    {
+      key: "delete",
+      content: move => (
+        <i
+          style={{ color: "red" }}
+          className="glyphicon glyphicon-trash"
+          onClick={() => this.props.onDelete(this.props.move)}
+        />
+      )
     }
-    this.props.onSort(sortColumn);
-  };
+  ];
 
   render() {
-    const { moves, onDelete } = this.props;
+    const { moves, sortColumn, onSort } = this.props;
 
     return (
-      <table className="table">
-        <thead className="thead">
-          <tr>
-            <th onClick={() => this.raiseSort("name")}>Name</th>
-            <th onClick={() => this.raiseSort("type")}>Type</th>
-            <th onClick={() => this.raiseSort("description")}>Description</th>
-            <th onClick={() => this.raiseSort("link")}>Tutorial Link</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          {moves.map(m => (
-            <tr key={m.name}>
-              <td>
-                <a href="/" style={{ color: "green" }}>
-                  {m.name}
-                </a>
-              </td>
-              <td>{m.type}</td>
-              <td>{m.description}</td>
-              <td>
-                <a href={m.link}>here</a>
-              </td>
-              <td>
-                <i
-                  style={{ color: "red" }}
-                  className="glyphicon glyphicon-trash"
-                  onClick={onDelete}
-                />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div>
+        <h1
+          className="text-center"
+          // style={{
+          //   fontFamily: "cursive",
+          //   color: "mediumseagreen",
+          //   fontSize: "40px",
+          //   marginBottom: "30px"
+          // }}
+        >
+          Capoeira Brasil Moves
+        </h1>
+        <table
+          className="table"
+          style={{
+            height: "700px",
+            overflow: "auto"
+          }}
+        >
+          <TableHeader
+            columns={this.columns}
+            sortColumn={sortColumn}
+            onSort={onSort}
+          />
+          <TableBody data={moves} columns={this.columns} />
+        </table>
+      </div>
     );
   }
 }
