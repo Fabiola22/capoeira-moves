@@ -36,11 +36,11 @@ class Moves extends Component {
     this.setState({ currentPage: nextPage });
   };
 
-  handleDelete = move => {
-    const moves = this.state.moves;
-    moves.splice(m => m.index, 1);
-    this.setState({ moves });
-  };
+  // handleDelete = move => {
+  //   const moves = this.state.moves;
+  //   moves.splice(m => m.index, 1);
+  //   this.setState({ moves });
+  // };
 
   handleSort = sortColumn => {
     this.setState({ sortColumn });
@@ -77,7 +77,7 @@ class Moves extends Component {
           moves={moves}
           sortColumn={sortColumn}
           onSort={this.handleSort}
-          onDelete={this.handleDelete}
+          // onDelete={this.handleDelete}
         />
         <Pagination
           itemsCount={count}

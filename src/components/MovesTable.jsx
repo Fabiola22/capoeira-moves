@@ -18,17 +18,17 @@ class MovesTable extends Component {
           />
         </a>
       )
-    },
-    {
-      key: "delete",
-      content: move => (
-        <i
-          style={{ color: "red" }}
-          className="glyphicon glyphicon-trash"
-          onClick={() => this.props.onDelete(this.props.move)}
-        />
-      )
     }
+    // {
+    //   key: "delete",
+    //   content: move => (
+    //     <i
+    //       style={{ color: "red" }}
+    //       className="glyphicon glyphicon-trash"
+    //       onClick={() => this.props.onDelete(this.props.move)}
+    //     />
+    //   )
+    // }
   ];
 
   render() {
