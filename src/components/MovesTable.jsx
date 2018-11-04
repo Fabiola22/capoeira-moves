@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import TableHeader from "../common/tableHeader";
 import TableBody from "../common/tableBody";
 import SearchBox from "./SearchBox";
+import { Link } from 'react-router-dom';
+import Move from './Move';
 
 class MovesTable extends Component {
   columns = [
     {
       path: "name",
       label: "Name",
-      content: column => <a href="/">{column.name}</a>
+      content: column => <Link to={`/moves/${column.id}`}> {column.name}</Link>
     },
     { path: "type", label: "Type" },
     { path: "description", label: "Description" },
@@ -16,12 +18,12 @@ class MovesTable extends Component {
       path: "link",
       label: "Watch Tutorial",
       content: item => (
-        <a href={item.link}>
+        <Link to={item.link}>
           <i
-            style={{ color: "red", fontSize: "20px" }}
+            style={{ color: "red", fontSize: "20px", marginLeft: "20px" }}
             className="fa fa-youtube-play"
           />
-        </a>
+        </Link>
       )
     }
   ];

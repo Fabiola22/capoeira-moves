@@ -22,8 +22,8 @@ class TableHeader extends Component {
 
   render() {
     return (
-      <thead>
-        <tr>
+      <thead style={{ backgroundColor: "mediumseagreen" }}>
+        <tr style={{ color: "white", fontSize: "15px", textTransform: "uppercase" }}>
           {this.props.columns.map(column => (
             <th
               className="clickable"

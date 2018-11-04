@@ -5,7 +5,9 @@ const SearchBox = ({ value, onChange }) => {
     <input
       style={{
         width: "250px",
-        float: "right"
+        float: "right",
+        marginBottom: "20px",
+        fontSize: "15px"
       }}
       type="text"
       name="query"

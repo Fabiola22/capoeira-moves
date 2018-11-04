@@ -16,7 +16,7 @@ class TableBody extends Component {
     const { data, columns } = this.props;
 
     return (
-      <tbody>
+      <tbody style={{ fontSize: "15px" }}>
         {data.map(item => (
           <tr key={item.name}>
             {columns.map(column => (
