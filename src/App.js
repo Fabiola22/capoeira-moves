@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./App.css";
 import Moves from './components/Moves/Moves';
-import Move from './components/Move';
+import Move from './components/Move/Move';
 import NotFound from './components/NotFound';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -16,7 +16,6 @@ class App extends Component {
             <Route path="/moves" component={Moves} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/moves" />
-            <Redirect to="/not-found" />
           </Switch>
         </div>
       </React.Fragment>

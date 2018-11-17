@@ -3,7 +3,7 @@ import TableHeader from "../common/tableHeader";
 import TableBody from "../common/tableBody";
 import SearchBox from "./SearchBox";
 import { Link } from 'react-router-dom';
-import Move from './Move';
+import Move from './Move/Move';
 
 class MovesTable extends Component {
   columns = [
